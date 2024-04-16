@@ -425,7 +425,7 @@ MonoBehaviour:
   turretTurnSpeed: 3
   detectRange: 15
   stopRange: 3
-  switchTargetRange: 0
+  switchTargetRange: 2
   switchDist: 10
   AIDelay: 0.5
   turret: {fileID: 384801693087291475}
