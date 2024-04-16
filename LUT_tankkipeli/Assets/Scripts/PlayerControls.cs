@@ -12,6 +12,10 @@ public class LayerControls : MonoBehaviour
     public float turretTurnSpeed;
     private float maxRayDist = 100f;
     private int floorMask;
+    public GameObject projectile;
+    public Transform muzzle;
+    public float shootCooldown;
+    private float t;
 
     public Transform turret;
     
@@ -20,12 +24,29 @@ public class LayerControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        t = 0f;
         rb = GetComponent<Rigidbody>();
         mainCamera = Camera.main;
         floorMask = LayerMask.GetMask("Floor");
     }
 
-    // Update is called once per frame
+    void Update()
+    {
+        if (t <= 0)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Instantiate(projectile, muzzle.position, muzzle.rotation);
+                t = shootCooldown;
+            }
+        }
+        else
+        {
+            t -= Time.deltaTime;
+        }
+      
+    }
+    
     void FixedUpdate()
     {
         float inputHor = Input.GetAxis("Horizontal");
