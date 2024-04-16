@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.408805, g: 0.10155841, b: 0.38157105, a: 1}
+  m_AmbientSkyColor: {r: 0.4339623, g: 0, b: 0.6037736, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -135,9 +135,10 @@ GameObject:
   - component: {fileID: 153035527}
   - component: {fileID: 153035528}
   - component: {fileID: 153035529}
+  - component: {fileID: 153035530}
   m_Layer: 0
   m_Name: Tank
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,7 +225,25 @@ MonoBehaviour:
   movementSpeed: 7
   turningSpeed: 2.5
   turretTurnSpeed: 7
+  projectile: {fileID: 5719856514844757264, guid: 2a6d08df8b0e01f499651693cfcf5864, type: 3}
+  muzzle: {fileID: 1512341241}
+  shootCooldown: 1
   turret: {fileID: 1691479971}
+--- !u!114 &153035530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153035525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9585bbda98e608a429353c9d3c66debc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  explosion: {fileID: 3298233539401669346, guid: 1036d638c423b9447b66c64f6c8c2997, type: 3}
 --- !u!1 &228195269
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +469,7 @@ GameObject:
   - component: {fileID: 503025281}
   m_Layer: 0
   m_Name: Track (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1053,7 +1072,7 @@ GameObject:
   - component: {fileID: 1387921612}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1155,7 +1174,7 @@ GameObject:
   - component: {fileID: 1512341241}
   m_Layer: 0
   m_Name: Muzzle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1169,7 +1188,7 @@ Transform:
   m_GameObject: {fileID: 1512341240}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.011, y: 0.134, z: 0.865}
+  m_LocalPosition: {x: 0.011, y: 0.134, z: 1.036}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1188,7 +1207,7 @@ GameObject:
   - component: {fileID: 1618498724}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1271,7 +1290,7 @@ GameObject:
   - component: {fileID: 1636162407}
   m_Layer: 0
   m_Name: Track
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1352,7 +1371,7 @@ GameObject:
   - component: {fileID: 1691479971}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1444,7 +1463,7 @@ GameObject:
   - component: {fileID: 1927400547}
   m_Layer: 0
   m_Name: Tube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
