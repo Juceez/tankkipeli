@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8909472799281569584}
   - component: {fileID: 1048437732121469711}
   - component: {fileID: 8830807244074752676}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Block
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,4 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
   explosion: {fileID: 3298233539401669346, guid: aa4a75c41c730374eabf1d5348fc86ae, type: 3}

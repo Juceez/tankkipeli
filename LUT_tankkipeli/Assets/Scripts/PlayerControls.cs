@@ -14,7 +14,7 @@ public class LayerControls : MonoBehaviour
     private int floorMask;
     public GameObject projectile;
     public Transform muzzle;
-    public float shootCooldown;
+    public float shootCooldown = 1f;
     private float t;
 
     public Transform turret;
@@ -49,6 +49,9 @@ public class LayerControls : MonoBehaviour
     
     void FixedUpdate()
     {
+        Vector3 currentRotation = rb.rotation.eulerAngles;
+        rb.rotation = Quaternion.Euler(0f, currentRotation.y, 0f);
+        
         float inputHor = Input.GetAxis("Horizontal");
         float inputVer = Input.GetAxis("Vertical");
 
