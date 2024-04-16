@@ -15,11 +15,15 @@ public class ProjectileScript : MonoBehaviour
 
     private Rigidbody rb;
     private float t;
+
+    private float shootGrace = 0.01f;
+    private float t2;
     
     // Start is called before the first frame update
     void Start()
     {
         t = time;
+        t2 = shootGrace;
         rb = GetComponent<Rigidbody>();
         rb.velocity = transform.forward * speed;    
     }
@@ -28,6 +32,8 @@ public class ProjectileScript : MonoBehaviour
     void Update()
     {
         t -= Time.deltaTime;
+        t2 -= Time.deltaTime;
+        
         if (t <= 0)
         {
             Explode();
@@ -54,8 +60,10 @@ public class ProjectileScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        // if (!other.CompareTag("Player"))
+        if (t2 <= 0 && !other.gameObject.CompareTag("Bumper")) 
         {
+            Debug.Log(other);
             Explode();
         }
     }
