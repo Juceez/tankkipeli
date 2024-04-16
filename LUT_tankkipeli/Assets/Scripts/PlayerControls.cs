@@ -34,7 +34,7 @@ public class LayerControls : MonoBehaviour
     {
         if (t <= 0)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButton("Fire1"))
             {
                 Instantiate(projectile, muzzle.position, muzzle.rotation);
                 t = shootCooldown;

@@ -11,6 +11,7 @@ public class ProjectileScript : MonoBehaviour
     public float time;
     public float radius;
     public float damage;
+    public GameObject explosion;
 
     private Rigidbody rb;
     private float t;
@@ -39,8 +40,14 @@ public class ProjectileScript : MonoBehaviour
 
         for (int i = 0; i < colliders.Length; i++)
         {
-            Destroy(colliders[i].gameObject);
+            Health health = colliders[i].GetComponent<Health>();
+            if (health != null)
+            {
+                health.ReduceHealth(damage);
+            }
         }
+
+        Instantiate(explosion, transform.position, new Quaternion());
         
         Destroy(gameObject);
     }
