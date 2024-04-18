@@ -37,9 +37,11 @@ public class AI_Controls : MonoBehaviour
 
     private State state;
     private State nextState;
+    public AudioSource audioSource;
     
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
         t = 0f;
         AIt = 0f;
@@ -78,6 +80,7 @@ public class AI_Controls : MonoBehaviour
                     if (t < 0)
                     {
                         Instantiate(projectile, muzzle.position, muzzle.rotation);
+                        audioSource.Play();
                         t = shootCooldown;
                     }
                     

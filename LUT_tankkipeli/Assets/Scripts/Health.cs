@@ -17,6 +17,8 @@ public class Health : MonoBehaviour
     private float t;
 
     private MeshRenderer[] meshRenderers;
+    private bool isDead = false;
+    private AudioSource audioSource;
     
     // Start is called before the first frame update
     void Start()
@@ -25,17 +27,30 @@ public class Health : MonoBehaviour
         meshRenderers = GetComponentsInChildren<MeshRenderer>();
         originalColor = meshRenderers[0].material.color;
         originalEmissionCol = meshRenderers[0].material.GetColor("_EmissionColor");
+        audioSource = GetComponent<AudioSource>();
+        
+        if (gameObject.CompareTag("Player")) GameControlScript.instance.SetHealth(currentHealth, maxHealth);
     }
 
     public void ReduceHealth(float damage)
     {
         StartCoroutine(DamageFlash());
         currentHealth -= damage;
-        if (currentHealth <= 0)
+
+        if (gameObject.CompareTag("Player")) GameControlScript.instance.SetHealth(currentHealth, maxHealth);
+        
+        if (currentHealth <= 0 && !isDead)
         {
+            isDead = true;
+            if (gameObject.CompareTag("Enemy"))
+            {
+                GameControlScript.instance.EnemyDestroyed();
+            }
+            
             Instantiate(explosion, transform.position, new Quaternion());
             Destroy(gameObject);
         }
+        audioSource.Play();
     }
 
     private IEnumerator DamageFlash()

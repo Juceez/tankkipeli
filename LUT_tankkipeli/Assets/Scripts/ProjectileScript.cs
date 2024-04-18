@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
@@ -16,7 +15,7 @@ public class ProjectileScript : MonoBehaviour
     private Rigidbody rb;
     private float t;
 
-    private float shootGrace = 0.01f;
+    private float shootGrace = 0.02f;
     private float t2;
     
     // Start is called before the first frame update
@@ -63,7 +62,6 @@ public class ProjectileScript : MonoBehaviour
         // if (!other.CompareTag("Player"))
         if (t2 <= 0 && !other.gameObject.CompareTag("Bumper")) 
         {
-            Debug.Log(other);
             Explode();
         }
     }

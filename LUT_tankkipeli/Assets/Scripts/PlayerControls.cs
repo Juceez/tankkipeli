@@ -20,6 +20,7 @@ public class LayerControls : MonoBehaviour
     public Transform turret;
     
     private Camera mainCamera;
+    public AudioSource AudioSource;
     
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class LayerControls : MonoBehaviour
         {
             if (Input.GetButton("Fire1"))
             {
+                AudioSource.Play();
                 Instantiate(projectile, muzzle.position, muzzle.rotation);
                 t = shootCooldown;
             }
